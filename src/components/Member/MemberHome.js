@@ -15,6 +15,7 @@ const MemberHome = () => {
   useEffect(() => {
     axios.get("api/findItems").then((response) => {
       setItems(response.data);
+      console.log(process.env.REACT_APP_SECRET_CODE);
     });
   }, []);
 
