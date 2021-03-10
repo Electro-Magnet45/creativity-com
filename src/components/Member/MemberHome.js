@@ -14,12 +14,7 @@ const MemberHome = () => {
 
   useEffect(() => {
     axios.get("api/findItems").then((response) => {
-      console.log(response);
-      console.log(response.data);
-
-      setTimeout(() => {
-        setItems(response.data);
-      }, 2000);
+      setItems(response.data);
     });
   }, []);
 
