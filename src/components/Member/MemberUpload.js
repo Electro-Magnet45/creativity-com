@@ -16,8 +16,8 @@ const MemberUpload = () => {
 
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "drcxef0qi",
-      uploadPreset: "j2cq4uw4",
+      cloudName: process.env.REACT_APP_CLOUD_NAME,
+      uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
     },
     (error, result) => {
       if (!error && result && result.event === "success") {
