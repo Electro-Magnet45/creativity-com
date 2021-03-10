@@ -1,0 +1,57 @@
+.home {
+  background-color: black;
+  border-radius: 5%;
+  height: 100vh;
+  margin-top: 3.8rem;
+}
+
+.home ::selection {
+  color: black;
+  background: white;
+}
+
+.home__landingSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home__motionDiv {
+  position: relative;
+  animation: homeEnterAnimation 2s forwards;
+}
+
+.home__landingSection > .home__motionDiv > h1 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem;
+}
+
+.home__registerButton {
+  background: white;
+  border-radius: 30px;
+  width: 9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+@keyframes homeEnterAnimation {
+  from {
+    top: 200px;
+    opacity: 0;
+  }
+  to {
+    top: 10px;
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .home__landingSection > .home__motionDiv > h1 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    padding-left: 2px;
+  }
+}

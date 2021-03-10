@@ -1,0 +1,107 @@
+.register {
+  display: flex;
+  border-radius: 10%;
+  height: 100vh;
+  margin-top: 7rem;
+}
+
+.register ::selection {
+  background-color: black;
+  color: white;
+}
+
+.register__logoContainer {
+  display: flex;
+  flex: 20%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(170, 201, 255);
+  color: white;
+  border-radius: 10%;
+}
+
+.register__logoContainer > h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 4rem;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.register__registerContainer {
+  flex: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 232, 232);
+}
+
+.registerContainer__formContainer {
+  background-color: white;
+  border-radius: 13%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 4rem;
+
+  position: relative;
+  animation: registerEnterAnimation 500ms;
+}
+
+.formContainer__header {
+  align-self: flex-start;
+}
+
+.formContainer__header > h1 {
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+}
+
+.formContainer__header > h3 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.formContainer__inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  padding-top: 4rem !important;
+  margin-left: 1rem;
+}
+
+.MuiFormControl-root {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.MuiInputBase-input {
+  height: 2rem !important;
+  width: auto !important;
+}
+
+.MuiButton-containedPrimary {
+  margin-top: 2rem !important;
+}
+
+@keyframes registerEnterAnimation {
+  from {
+    top: 200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .register__logoContainer {
+    display: none;
+  }
+
+  .register__registerContainer {
+    flex: 100% !important;
+  }
+}

@@ -1,0 +1,228 @@
+.memberUpload {
+  margin-top: 3.8rem;
+  height: 100vh;
+}
+
+.progressBarDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.MuiCircularProgress-colorPrimary {
+  color: black !important;
+}
+
+.memberUpload__uploadcontainerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  flex-direction: column;
+}
+
+.upload__show {
+  position: absolute;
+  animation: 800ms upload__showAnime;
+}
+
+.containerDiv__backBox {
+  box-shadow: 5.14px 6.13px 40px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 35px;
+  border: none;
+  outline: none;
+  width: 30rem;
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 90rem;
+}
+
+.containerDiv__backBox > h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: #ffffff 3px 3px 0px, rgb(0 0 0 / 20%) 6px 6px 0px;
+  margin: 0;
+  padding: 0;
+}
+
+.backBox__divider {
+  border-top: dotted 2px blue;
+  width: 4rem;
+  border-top-width: 6px;
+}
+
+.containerDiv__containerBox {
+  position: absolute;
+  margin-top: 2rem;
+  background-color: rgb(118, 15, 203);
+  color: white;
+  width: 40rem;
+  box-shadow: 0px 0px 23px 18px rgba(0, 0, 0, 0.28);
+}
+
+.containerDiv__containerBox > h1 {
+  padding-left: 1rem;
+}
+
+.containerBox__buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerBox__buttonContainer > button {
+  background-color: greenyellow;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  cursor: pointer;
+  border: 5px solid white;
+  border-radius: 20%;
+}
+.containerBox__buttonContainer > button:hover {
+  background-color: green;
+  color: white;
+}
+
+.containerBox__continueDiv {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  height: inherit;
+}
+
+.containerBox__continueButton {
+  background-color: greenyellow !important;
+  color: white !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  cursor: pointer !important;
+  border: 5px solid white !important;
+  border-radius: 20% !important;
+  height: 2rem !important;
+  width: 7rem !important;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 2rem;
+  background-color: white;
+  color: white;
+  width: 40rem;
+  box-shadow: 0px 0px 23px 18px rgba(0, 0, 0, 0.28);
+}
+
+#inputDiv > .MuiFormControl-root {
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.nameInput > .MuiInputBase-root > input {
+  height: 1rem !important;
+  width: 20rem !important;
+}
+
+.inputContainer__continueDiv {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  height: inherit;
+}
+
+.inputContainer__continueButton {
+  background-color: greenyellow !important;
+  color: white !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  cursor: pointer !important;
+  border: 5px solid white !important;
+  border-radius: 20% !important;
+  height: 2rem !important;
+  width: 7rem !important;
+  font-size: 15px !important;
+}
+
+.showDivAnime {
+  animation: 3s showAnime;
+}
+
+.hideDivAnime {
+  animation: 3s hideAnime;
+}
+
+.hideDivFully {
+  opacity: 0;
+  display: none;
+}
+
+.showDivFully {
+  opacity: 1;
+  display: block;
+}
+
+@keyframes upload__showAnime {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes showAnime {
+  0% {
+    transform: translateX(80rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes hideAnime {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-80rem);
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .containerDiv__containerBox {
+    width: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .inputContainer {
+    width: fit-content;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}

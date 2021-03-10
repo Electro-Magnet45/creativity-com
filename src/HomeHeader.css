@@ -1,0 +1,41 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: rgb(118, 15, 203);
+  color: white;
+  display: inline-flex;
+  margin: 0 !important;
+}
+
+.header ::selection {
+  background-color: none;
+  color: none;
+}
+
+.header__logoSection {
+  background-color: black;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.white {
+  background-color: white !important;
+  color: black;
+}
+
+.header__navLinkSection {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.header__navLinkSection > h3 > a {
+  color: white;
+  text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 17px;
+}

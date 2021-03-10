@@ -1,0 +1,41 @@
+.memberHeader {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: rgb(118, 15, 203);
+  color: white;
+  display: inline-flex;
+  margin: 0 !important;
+}
+
+.memberHeader ::selection {
+  background-color: none;
+  color: none;
+}
+
+.memberHeader__logoSection {
+  background-color: black;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.white {
+  background-color: white !important;
+  color: black;
+}
+
+.memberHeader__navLinkSection {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.memberHeader__navLinkSection > h3 > a {
+  color: white;
+  text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 17px;
+}

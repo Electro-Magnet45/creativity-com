@@ -1,0 +1,55 @@
+.item {
+  margin-top: 1.5rem;
+  display: flex;
+  position: relative;
+}
+
+.item__itemDiv {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.item__itemDiv:hover > .item__detailsDiv {
+  display: block;
+  cursor: pointer;
+}
+
+/*============== Details Div ==========*/
+
+.item__detailsDiv {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black see-through */
+  opacity: 0.6;
+}
+
+.item__detailsDiv > .detailsDiv__itemName > h3 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  opacity: 1 !important;
+  margin: 0 !important;
+  padding: 4px !important;
+}
+
+/**/
+
+@media (max-width: 400px) {
+  .item {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .item__itemDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .item__itemDiv > img {
+    width: 20rem !important;
+  }
+}
