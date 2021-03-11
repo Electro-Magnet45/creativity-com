@@ -40,7 +40,10 @@ const MemberUpload = () => {
         image: imageUrl,
       })
       .then(() => {
-        history.push("/members/home");
+        setShowProgress(false);
+        setTimeout(() => {
+          history.push("/members/home");
+        }, 1000);
       });
   };
 
