@@ -19,7 +19,6 @@ function Login({ loggedIn }) {
           .auth()
           .signInWithEmailAndPassword(email, password)
           .then((userCredential) => {
-            console.log("logged in");
             setWaitingForLogin(false);
             setEmail("");
             setPassword("");

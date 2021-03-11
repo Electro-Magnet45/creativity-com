@@ -38,6 +38,7 @@ const MemberUpload = () => {
       .post("api/newItem", {
         name: itemName,
         image: imageUrl,
+        userName: localStorage.getItem("userName"),
       })
       .then(() => {
         setShowProgress(false);

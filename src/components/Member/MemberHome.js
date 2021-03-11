@@ -24,7 +24,7 @@ const MemberHome = () => {
         <div className="landingSection__titleSection">
           <div className="titleSection__titleDiv">
             <h1>Hi !</h1>
-            <h3>{"Aswin"}</h3>
+            <h3>{localStorage.getItem("userName")}</h3>
             <Button onClick={() => history.push("/members/upload")}>
               Start Uploading
             </Button>
@@ -45,7 +45,11 @@ const MemberHome = () => {
           {items &&
             items.map((item) => {
               return (
-                <Item key={item.name} imageUrl={item.image} name={item.name} />
+                <Item
+                  key={item.name}
+                  imageUrl={item.image}
+                  name={item.userName}
+                />
               );
             })}
         </div>

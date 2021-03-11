@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./Register.css";
 
+import { useHistory } from "react-router-dom";
 import firebase from "../../firebase";
+import axios from "../../axios";
 import { TextField, Button, Tooltip } from "@material-ui/core";
 
 function Register({ loggedIn }) {
   //
+  var history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState("");
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [waitingForRegister, setWaitingForRegister] = useState(false);
+  const [waitingForAddingUser, setWaitingForAddingUser] = useState(false);
+  const [name, setName] = useState("");
+  const [showInfoBox, setShowInfoBox] = useState(false);
 
   const signInUser = () => {
     if (!loggedIn) {
@@ -19,10 +27,21 @@ function Register({ loggedIn }) {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then((userCredential) => {
-            console.log("registered");
+            setUserId(userCredential.user.uid);
             setWaitingForRegister(false);
             setEmail("");
             setPassword("");
+
+            setShowInfoBox(true);
+            document
+              .querySelector(".register__InfoFormContainer")
+              .classList.remove("hidden");
+            document
+              .querySelector(".register__InfoFormContainer")
+              .classList.add("visible");
+            document
+              .querySelector(".registerContainer__formContainer")
+              .classList.add("hidden");
           })
           .catch((error) => {
             console.log(
@@ -36,6 +55,26 @@ function Register({ loggedIn }) {
       } else {
         setTooltipOpen(true);
       }
+    }
+  };
+
+  const addUser = () => {
+    if (name) {
+      setWaitingForAddingUser(true);
+      localStorage.setItem("userName", name);
+
+      axios
+        .post("/api/newUser", {
+          name: name,
+          userId: userId,
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            setTimeout(() => {
+              history.push("/members/home");
+            }, 500);
+          }
+        });
     }
   };
 
@@ -109,6 +148,35 @@ function Register({ loggedIn }) {
             </Button>
           </div>
         </div>
+
+        {showInfoBox && (
+          <div className="register__InfoFormContainer hidden">
+            <div className="infoFormContainer__header">
+              <h1>Register</h1>
+              <h3>Please enter your information</h3>
+            </div>
+
+            <div className="infoFormContainer__inputContainer">
+              <TextField
+                id="standard-basic"
+                label="Full Name"
+                value={name}
+                inputProps={{
+                  autoComplete: "off",
+                }}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={waitingForAddingUser}
+                onClick={addUser}
+              >
+                Continue
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

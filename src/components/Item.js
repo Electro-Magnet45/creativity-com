@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Item.css";
 
-const Item = ({ imageUrl, name }) => {
+const Item = ({ imageUrl, userName }) => {
   //
   const [hieght, setHieght] = useState(null);
   const [width, setWidth] = useState(null);
@@ -35,7 +35,7 @@ const Item = ({ imageUrl, name }) => {
             style={{ width: width, hieght: hieght }}
           >
             <div className="detailsDiv__itemName">
-              <h3>{name}</h3>
+              <h3>{userName}</h3>
             </div>
           </div>
         )}
