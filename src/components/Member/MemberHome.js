@@ -20,6 +20,18 @@ const MemberHome = () => {
 
   return (
     <div className="memberHome">
+      <div className="memberHome__header">
+        <div className="header__profile">
+          <img
+            className="profile__profilePicture"
+            src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png"
+            alt=""
+            onClick={() => {
+              history.push("/members/user");
+            }}
+          />
+        </div>
+      </div>
       <div className="memberHome__landingSection">
         <div className="landingSection__titleSection">
           <div className="titleSection__titleDiv">

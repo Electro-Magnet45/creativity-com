@@ -7,6 +7,26 @@
   color: white;
 }
 
+.memberHome__header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__profile {
+  margin-top: 10px;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.header__profile > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .memberHome__landingSection {
   display: flex;
   align-items: center;
