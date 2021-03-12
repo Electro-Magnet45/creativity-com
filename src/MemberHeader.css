@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 100;
   top: 0;
-  background-color: rgb(118, 15, 203);
+  background-color: var(--main-color);
   color: white;
   display: inline-flex;
   margin: 0 !important;

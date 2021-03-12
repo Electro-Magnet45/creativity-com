@@ -5,7 +5,7 @@ import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import axios from "../../axios";
 
-const MemberUpload = () => {
+const MemberUpload = ({ userId }) => {
   //
   var history = useHistory();
 
@@ -39,6 +39,7 @@ const MemberUpload = () => {
         name: itemName,
         image: imageUrl,
         userName: localStorage.getItem("userName"),
+        userId: userId,
       })
       .then(() => {
         setShowProgress(false);

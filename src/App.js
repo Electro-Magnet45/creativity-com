@@ -11,10 +11,12 @@ import Login from "./components/Home/Login";
 import MemberHeader from "./MemberHeader";
 import MemberHome from "./components/Member/MemberHome";
 import MemberUpload from "./components/Member/MemberUpload";
+import MemberUserProfile from "./components/Member/MemberUserProfile";
 
 function App() {
   //
   const [loggedIn, setLogggedIn] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   const ErrorPage = () => {
     return (
@@ -30,6 +32,7 @@ function App() {
       if (user) {
         sessionStorage.setItem("loggedIn", true);
         setLogggedIn(true);
+        setUserId(user.uid);
       } else {
         sessionStorage.setItem("loggedIn", false);
         setLogggedIn(false);
@@ -64,7 +67,12 @@ function App() {
           )}
           {loggedIn && (
             <Route path="/members/upload">
-              <MemberUpload />
+              <MemberUpload userId={userId} />
+            </Route>
+          )}
+          {loggedIn && (
+            <Route path="/members/user">
+              <MemberUserProfile userId={userId} />
             </Route>
           )}
         </Switch>

@@ -13,7 +13,7 @@ const MemberHome = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get("api/findItems").then((response) => {
+    axios.get("api/findItems/all").then((response) => {
       setItems(response.data);
     });
   }, []);
@@ -46,9 +46,9 @@ const MemberHome = () => {
             items.map((item) => {
               return (
                 <Item
-                  key={item.name}
+                  key={Math.random()}
                   imageUrl={item.image}
-                  name={item.userName}
+                  userName={item.userName}
                 />
               );
             })}

@@ -1,0 +1,40 @@
+.memberUserProfileNav {
+  height: auto;
+  width: auto;
+  margin-right: 5rem;
+  margin-left: 5rem;
+}
+
+.memberUserProfile__navBar {
+  background-color: white;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.navBar__linkItem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  height: 3rem;
+  margin-right: 1rem;
+}
+.navBar__linkItem:hover {
+  background-color: rgba(255, 124, 75, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.navBar__linkItem > h2 {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0 !important;
+}
+
+.selectedLinkItem {
+  background-color: var(--main-color) !important;
+  color: white !important;
+}

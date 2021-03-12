@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+body {
+  --main-color: rgb(118, 15, 203);
+  --main-font: "Poppins", sans-serif;
+}
+
 .errorPage {
   height: 100vh;
   background-color: black;

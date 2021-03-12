@@ -1,0 +1,74 @@
+.memberUserProfile {
+  margin-top: 7rem !important;
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+.profileArea__profileDiv {
+  background-color: var(--main-color);
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.profileDiv__imageDiv {
+  flex: 10%;
+  padding-left: 5rem;
+  z-index: 60;
+}
+
+.imageDiv__profilePicture {
+  height: 140px;
+  width: 140px;
+  border-radius: 60%;
+  -moz-box-shadow: 0px 6px 5px black;
+  -webkit-box-shadow: 0px 6px 5px black;
+  box-shadow: 0px 6px 5px black;
+}
+
+.profileDiv__userNameDiv {
+  margin-bottom: 5rem;
+  margin-left: 1rem;
+  flex: 90%;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.profileArea__divider {
+  z-index: 50;
+  background-color: white;
+  position: relative;
+  top: -2rem;
+  height: 5rem;
+  justify-self: stretch;
+}
+
+.memberUserProflie__itemSection {
+  height: max-content;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.memberUserProflie__items {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
+}
+
+/**/
+
+@media (max-width: 850px) {
+  .memberUserProflie__items {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .memberUserProfile {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}

@@ -21,7 +21,7 @@
 }
 
 .login__logoContainer > h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--main-font);
   font-size: 4rem;
   padding-left: 2px;
   padding-right: 2px;
