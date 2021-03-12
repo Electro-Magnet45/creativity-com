@@ -12,6 +12,7 @@ function Register({ loggedIn }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [userId, setUserId] = useState("");
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [waitingForRegister, setWaitingForRegister] = useState(false);
@@ -62,15 +63,34 @@ function Register({ loggedIn }) {
     }
   };
 
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "drcxef0qi",
+      uploadPreset: "j2cq4uw4",
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        setImageUrl(result.info.secure_url);
+      }
+    }
+  );
+
+  const widgetButtonOpen = (e) => {
+    e.preventDefault();
+    myWidget.open();
+  };
+
   const addUser = () => {
     if (name) {
       setWaitingForAddingUser(true);
       localStorage.setItem("userName", name);
+      localStorage.setItem("userPhoto", imageUrl);
 
       axios
         .post("/api/newUser", {
           name: name,
           userId: userId,
+          profilePhoto: imageUrl,
         })
         .then((response) => {
           if (response.status === 201) {
@@ -172,6 +192,14 @@ function Register({ loggedIn }) {
                 }}
                 onChange={(e) => setName(e.target.value)}
               />
+              <Button
+                onClick={(e) => widgetButtonOpen(e)}
+                id="upload_widget"
+                className="cloudinary-button"
+                disabled={waitingForAddingUser}
+              >
+                Upload Profile Photo
+              </Button>
               <Button
                 variant="contained"
                 color="primary"

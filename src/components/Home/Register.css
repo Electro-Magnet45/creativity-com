@@ -121,6 +121,23 @@
   margin-left: 1rem;
 }
 
+.infoFormContainer__inputContainer > .cloudinary-button {
+  background-color: greenyellow;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  margin-top: 1rem;
+  cursor: pointer;
+  border: 5px solid white;
+  border-radius: 20%;
+}
+
+.infoFormContainer__inputContainer > .cloudinary-button:hover {
+  background-color: green;
+  color: white;
+}
+
 .hidden {
   animation: registerLeaveAnimation 500ms;
   opacity: 0;

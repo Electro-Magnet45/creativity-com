@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import axios from "./axios";
 import firebase from "./firebase";
 
 import HomeHeader from "./HomeHeader";
@@ -39,6 +41,32 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (userId) {
+      if (!localStorage.getItem("userName")) {
+        axios
+          .post("/api/findUser", {
+            userId: userId,
+          })
+          .then((response) => {
+            localStorage.setItem("userName", response.data[0].name);
+            localStorage.setItem("userPhoto", response.data[0].profilePhoto);
+          });
+      }
+
+      if (!localStorage.getItem("userPhoto")) {
+        axios
+          .post("/api/findUser", {
+            userId: userId,
+          })
+          .then((response) => {
+            localStorage.setItem("userName", response.data[0].name);
+            localStorage.setItem("userPhoto", response.data[0].profilePhoto);
+          });
+      }
+    }
+  }, [userId]);
 
   return (
     <div className="App">

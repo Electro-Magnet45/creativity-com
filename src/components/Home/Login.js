@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 
+import { useHistory } from "react-router-dom";
 import firebase from "../../firebase";
 import { TextField, Button, Tooltip } from "@material-ui/core";
 
 function Login({ loggedIn }) {
   //
+  var history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -22,6 +25,9 @@ function Login({ loggedIn }) {
             setWaitingForLogin(false);
             setEmail("");
             setPassword("");
+            setTimeout(() => {
+              history.push("/members/home");
+            }, 500);
           })
           .catch((error) => {
             console.log(

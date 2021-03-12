@@ -24,7 +24,7 @@ const MemberHome = () => {
         <div className="header__profile">
           <img
             className="profile__profilePicture"
-            src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png"
+            src={localStorage.getItem("userPhoto")}
             alt=""
             onClick={() => {
               history.push("/members/user");

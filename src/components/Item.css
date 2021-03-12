@@ -14,8 +14,8 @@
 }
 
 .item__itemDiv > img {
-  height: 285;
-  width: 117;
+  width: 285px !important;
+  height: 171px !important;
 }
 
 /*============== Details Div ==========*/

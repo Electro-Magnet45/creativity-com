@@ -9,6 +9,7 @@ const MemberUserProfile = ({ userId }) => {
   //
   const [clickedlink, setClickedLink] = useState("Posts");
   const [filteredItems, setFilteredItems] = useState([]);
+  const [itemsLoaded, setItemsLoaded] = useState(false);
 
   useEffect(() => {
     if (userId) {
@@ -18,6 +19,7 @@ const MemberUserProfile = ({ userId }) => {
         })
         .then((response) => {
           setFilteredItems(response.data);
+          setItemsLoaded(true);
         });
     }
   }, [userId]);
@@ -44,8 +46,8 @@ const MemberUserProfile = ({ userId }) => {
           <div className="profileDiv__imageDiv">
             <img
               className="imageDiv__profilePicture"
-              src="https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png"
-              alt=""
+              src={localStorage.getItem("userPhoto")}
+              alt="Creativty.com"
             />
           </div>
           <div className="profileDiv__userNameDiv">
@@ -60,8 +62,8 @@ const MemberUserProfile = ({ userId }) => {
         />
       </div>
 
-      {filteredItems && (
-        <div className="memberUserProflie__itemSection">
+      <div className="memberUserProflie__itemSection">
+        {itemsLoaded && (
           <div className="memberUserProflie__items">
             {filteredItems.map((item) => {
               return (
@@ -73,8 +75,8 @@ const MemberUserProfile = ({ userId }) => {
               );
             })}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
