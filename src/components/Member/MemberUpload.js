@@ -5,10 +5,11 @@ import { Button, TextField, CircularProgress } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import axios from "../../axios";
 
-const MemberUpload = ({ userId }) => {
+const MemberUpload = ({ userId, socket }) => {
   //
   var history = useHistory();
 
+  const [socketio, setSocketio] = useState(null);
   const [currentState, setCurrentState] = useState("Upload Your Creativity");
   const [imageUrl, setImageUrl] = useState(null);
   const [itemName, setItemName] = useState("");
@@ -43,6 +44,17 @@ const MemberUpload = ({ userId }) => {
       })
       .then(() => {
         setShowProgress(false);
+
+        socketio.emit(
+          "newItemClient",
+          JSON.stringify({
+            name: itemName,
+            image: imageUrl,
+            userName: localStorage.getItem("userName"),
+            userId: userId,
+          })
+        );
+
         setTimeout(() => {
           history.push("/members/home");
         }, 1000);
@@ -56,6 +68,12 @@ const MemberUpload = ({ userId }) => {
         .classList.remove("upload__show");
     }, 800);
   }, []);
+
+  useEffect(() => {
+    if (socket) {
+      setSocketio(socket);
+    }
+  }, [socket]);
 
   return (
     <div className="memberUpload">
@@ -121,12 +139,14 @@ const MemberUpload = ({ userId }) => {
             onChange={(e) => setItemName(e.target.value)}
           />
           <div className="inputContainer__continueDiv">
-            <Button
-              className="inputContainer__continueButton"
-              onClick={startUpload}
-            >
-              Upload
-            </Button>
+            {socketio && (
+              <Button
+                className="inputContainer__continueButton"
+                onClick={startUpload}
+              >
+                Upload
+              </Button>
+            )}
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ function App() {
   //
   const [loggedIn, setLogggedIn] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [socket, setSocket] = useState(null);
 
   const ErrorPage = () => {
     return (
@@ -90,12 +91,12 @@ function App() {
           )}
           {loggedIn && (
             <Route path="/members/home">
-              <MemberHome />
+              <MemberHome socket={socket} setSocket={setSocket} />
             </Route>
           )}
           {loggedIn && (
             <Route path="/members/upload">
-              <MemberUpload userId={userId} />
+              <MemberUpload userId={userId} socket={socket} />
             </Route>
           )}
           {loggedIn && (

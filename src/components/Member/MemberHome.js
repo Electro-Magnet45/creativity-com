@@ -2,24 +2,73 @@ import React, { useState, useEffect } from "react";
 import "./MemberHome.css";
 import { Button } from "@material-ui/core";
 import Item from "../Item";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
-import axios from "../../axios";
 import { useHistory } from "react-router-dom";
+import axios from "../../axios";
+import { io } from "socket.io-client";
 
-const MemberHome = () => {
+const MemberHome = ({ socket, setSocket }) => {
   //
   var history = useHistory();
 
   const [items, setItems] = useState([]);
+  const [toastOpen, setToastOpen] = useState(false);
+  const [toastContent, setToastContent] = useState(null);
+
+  const connectSocket = () => {
+    setSocket(io("wss://creativity-com.herokuapp.com"));
+  };
 
   useEffect(() => {
     axios.get("api/findItems/all").then((response) => {
       setItems(response.data);
     });
+    connectSocket();
   }, []);
+
+  useEffect(() => {
+    if (socket) {
+      socket.on("connect", () => {
+        console.log("connected");
+      });
+
+      socket.on("newItem", (item) => {
+        const newItem = JSON.parse(item);
+        console.log(newItem);
+        console.log(newItem.userName);
+        setToastContent(newItem);
+        setToastOpen(true);
+      });
+    }
+  }, [socket]);
 
   return (
     <div className="memberHome">
+      <div className="memberHome__toastDiv">
+        {toastOpen && (
+          <Snackbar
+            open={toastOpen}
+            autoHideDuration={6000}
+            onClose={() => {
+              setToastOpen(false);
+              setToastContent(null);
+            }}
+          >
+            <MuiAlert
+              onClose={() => {
+                setToastOpen(false);
+                setToastContent(null);
+              }}
+              severity="info"
+            >
+              {`A new Item has been uploaded by ${toastContent.userName}`}
+            </MuiAlert>
+          </Snackbar>
+        )}
+      </div>
+
       <div className="memberHome__header">
         <div className="header__profile">
           <img
@@ -32,6 +81,7 @@ const MemberHome = () => {
           />
         </div>
       </div>
+
       <div className="memberHome__landingSection">
         <div className="landingSection__titleSection">
           <div className="titleSection__titleDiv">
