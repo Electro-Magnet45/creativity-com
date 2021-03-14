@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import Item from "../Item";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import Skeleton from "react-loading-skeleton";
 
 import { useHistory } from "react-router-dom";
 import axios from "../../axios";
@@ -14,6 +15,7 @@ const MemberHome = ({ socket, setSocket }) => {
   var history = useHistory();
 
   const [items, setItems] = useState([]);
+  const [didItemsLoad, setDidItemsLoad] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
   const [toastContent, setToastContent] = useState(null);
 
@@ -24,6 +26,9 @@ const MemberHome = ({ socket, setSocket }) => {
   useEffect(() => {
     axios.get("api/findItems/all").then((response) => {
       setItems(response.data);
+      setTimeout(() => {
+        setDidItemsLoad(true);
+      }, 2000);
     });
     connectSocket();
   }, []);
@@ -104,16 +109,27 @@ const MemberHome = ({ socket, setSocket }) => {
         </div>
 
         <div className="itemsSection__items">
-          {items &&
+          {didItemsLoad ? (
             items.map((item) => {
               return (
                 <Item
-                  key={Math.random()}
+                  key={item._id}
+                  itemId={item._id}
                   imageUrl={item.image}
                   userName={item.userName}
                 />
               );
-            })}
+            })
+          ) : (
+            <div className="itemSection__preloaderDiv">
+              <Skeleton className="itemSection__skelton" />
+              <Skeleton className="itemSection__skelton" />
+              <Skeleton className="itemSection__skelton" />
+              <Skeleton className="itemSection__skelton" />
+              <Skeleton className="itemSection__skelton" />
+              <Skeleton className="itemSection__skelton" />
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ import MemberHeader from "./MemberHeader";
 import MemberHome from "./components/Member/MemberHome";
 import MemberUpload from "./components/Member/MemberUpload";
 import MemberUserProfile from "./components/Member/MemberUserProfile";
+import MemberItem from "./components/Member/MemberItem";
 
 function App() {
   //
@@ -102,6 +103,11 @@ function App() {
           {loggedIn && (
             <Route path="/members/user">
               <MemberUserProfile userId={userId} />
+            </Route>
+          )}
+          {loggedIn && (
+            <Route path="/members/item/:itemId">
+              <MemberItem />
             </Route>
           )}
         </Switch>

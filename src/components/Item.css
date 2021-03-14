@@ -10,6 +10,8 @@
 
 .item__itemDiv:hover > .item__detailsDiv {
   display: block;
+  animation-name: detailsDivShow;
+  animation-duration: 0.3s;
   cursor: pointer;
 }
 
@@ -29,6 +31,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black see-through */
   opacity: 0.6;
+  width: 285px !important;
+  height: 171px !important;
 }
 
 .item__detailsDiv > .detailsDiv__itemName > h3 {
@@ -41,6 +45,15 @@
 }
 
 /**/
+
+@keyframes detailsDivShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
 
 @media (max-width: 400px) {
   .item {
@@ -55,6 +68,10 @@
     align-items: center;
   }
   .item__itemDiv > img {
+    width: 20rem !important;
+  }
+
+  .item__detailsDiv {
     width: 20rem !important;
   }
 }

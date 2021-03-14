@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MemberUserProfile.css";
 import MemberUserProfileNav from "./component/MemberUserProfileNav";
 import Item from "../Item";
+import Skeleton from "react-loading-skeleton";
 
 import axios from "../../axios";
 
@@ -19,7 +20,9 @@ const MemberUserProfile = ({ userId }) => {
         })
         .then((response) => {
           setFilteredItems(response.data);
-          setItemsLoaded(true);
+          setTimeout(() => {
+            setItemsLoaded(true);
+          }, 2000);
         });
     }
   }, [userId]);
@@ -63,17 +66,26 @@ const MemberUserProfile = ({ userId }) => {
       </div>
 
       <div className="memberUserProflie__itemSection">
-        {itemsLoaded && (
+        {itemsLoaded ? (
           <div className="memberUserProflie__items">
             {filteredItems.map((item) => {
               return (
                 <Item
-                  key={Math.random()}
+                  key={item._id}
                   imageUrl={item.image}
                   userName={item.userName}
                 />
               );
             })}
+          </div>
+        ) : (
+          <div className="memberUserPorfileItems__preloaderDiv">
+            <Skeleton className="memberUserPorfileItems__skelton" />
+            <Skeleton className="memberUserPorfileItems__skelton" />
+            <Skeleton className="memberUserPorfileItems__skelton" />
+            <Skeleton className="memberUserPorfileItems__skelton" />
+            <Skeleton className="memberUserPorfileItems__skelton" />
+            <Skeleton className="memberUserPorfileItems__skelton" />
           </div>
         )}
       </div>

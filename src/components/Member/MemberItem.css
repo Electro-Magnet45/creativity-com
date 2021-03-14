@@ -1,0 +1,72 @@
+.memberItem {
+  margin-top: 7rem !important;
+}
+
+.container__landingSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.landingSection__imageDiv {
+  flex: 50%;
+}
+
+.imageDiv__container {
+  margin-left: 5rem;
+}
+
+.imageDiv__container > img {
+  max-height: 340px;
+  max-width: 546px;
+}
+
+.imageDiv__imageSkelton {
+  height: 340px !important;
+  width: 546px !important;
+}
+
+.landingSection__infoDiv {
+  flex: 50%;
+  flex-basis: 8rem;
+}
+
+.infoDiv__container {
+  background-color: rgb(154, 154, 192);
+  color: white;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  margin-right: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoDiv__userNameSkelton {
+  height: 32px !important;
+  width: 283px !important;
+
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.infoDiv__container > button {
+  margin: 0 !important;
+  background-color: white;
+  color: var(--main-color);
+}
+.infoDiv__container > button:hover {
+  background-color: rgb(250, 245, 245);
+  color: var(--main-color);
+}
+
+.infoDiv__downloadBtnSkelton {
+  height: 24px !important;
+  width: 267px !important;
+}
+
+.MuiButton-label > a {
+  text-decoration: none;
+}

@@ -1,12 +1,19 @@
 import React from "react";
 import "./Item.css";
 
-const Item = ({ imageUrl, userName }) => {
+import { useHistory } from "react-router-dom";
+
+const Item = ({ itemId, imageUrl, userName }) => {
   //
+  const history = useHistory();
+
   return (
     <div className="item">
       <div className="item__itemDiv">
-        <div className="item__detailsDiv">
+        <div
+          className="item__detailsDiv"
+          onClick={() => history.push(`/members/item/${itemId}`)}
+        >
           <div className="detailsDiv__itemName">
             <h3>{userName}</h3>
           </div>
