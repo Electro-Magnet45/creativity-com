@@ -3,7 +3,7 @@ import "./MemberItem.css";
 import { Button } from "@material-ui/core";
 import Skeleton from "react-loading-skeleton";
 
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "../../axios";
 
 const MemberItem = () => {

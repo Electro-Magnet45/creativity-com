@@ -44,6 +44,11 @@
   padding: 4px !important;
 }
 
+.detailsDiv__imageDiv {
+  height: inherit;
+  width: inherit;
+}
+
 /**/
 
 @keyframes detailsDivShow {

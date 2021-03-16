@@ -117,6 +117,7 @@ const MemberHome = ({ socket, setSocket }) => {
                   itemId={item._id}
                   imageUrl={item.image}
                   userName={item.userName}
+                  userId={item.userId}
                 />
               );
             })

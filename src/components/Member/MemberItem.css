@@ -36,6 +36,7 @@
   padding: 1.5rem;
   margin-top: 2rem;
   margin-right: 3rem;
+  margin-left: 0rem;
 
   display: flex;
   flex-direction: column;
@@ -69,4 +70,33 @@
 
 .MuiButton-label > a {
   text-decoration: none;
+}
+
+/**/
+
+@media (max-width: 870px) {
+  .imageDiv__container > img {
+    max-height: 320px;
+    max-width: 530px;
+  }
+}
+
+@media (max-width: 850px) {
+  .container__landingSection {
+    flex-direction: column;
+  }
+
+  .infoDiv__container {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  .imageDiv__container {
+    margin-left: 0rem;
+  }
+
+  .imageDiv__container > img {
+    max-height: 300px;
+    max-width: 500px;
+  }
 }

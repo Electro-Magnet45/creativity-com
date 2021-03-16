@@ -15,6 +15,7 @@ import MemberHome from "./components/Member/MemberHome";
 import MemberUpload from "./components/Member/MemberUpload";
 import MemberUserProfile from "./components/Member/MemberUserProfile";
 import MemberItem from "./components/Member/MemberItem";
+import MemberProfile from "./components/Member/MemberProfile";
 
 function App() {
   //
@@ -101,8 +102,13 @@ function App() {
             </Route>
           )}
           {loggedIn && (
-            <Route path="/members/user">
+            <Route exact path="/members/user">
               <MemberUserProfile userId={userId} />
+            </Route>
+          )}
+          {loggedIn && (
+            <Route path="/members/user/:userId">
+              <MemberProfile />
             </Route>
           )}
           {loggedIn && (
