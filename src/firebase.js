@@ -1,12 +1,12 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: process.env.FIRE_APIKEY,
-  authDomain: process.env.FIRE_AUTHDOMAIN,
+  apiKey: process.env.REACT_APP_FIRE_APIKEY,
+  authDomain: process.env.REACT_APP_FIRE_AUTHDOMAIN,
   projectId: "creativity-com-9fc94",
-  storageBucket: process.env.FIRE_STOREBUCK,
+  storageBucket: process.env.REACT_APP_FIRE_STOREBUCK,
   messagingSenderId: "508445377050",
-  appId: process.env.FIRE_APPID,
+  appId: process.env.REACT_APP_FIRE_APPID,
 };
 
 if (!firebase.apps.length) {
